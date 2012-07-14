@@ -30,7 +30,7 @@ class Writer(object):
     def set_output(self, output=None):
         """set output stream"""
         self.out = output or sys.stdout
-        if type(self.out) == 'str':
+        if type(self.out) is str or type(self.out) is unicode:
             self.out = open(self.out, 'w')
 
     def write(self, string):
