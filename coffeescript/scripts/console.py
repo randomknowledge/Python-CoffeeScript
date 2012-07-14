@@ -30,6 +30,8 @@ class Writer(object):
     def set_output(self, output=None):
         """set output stream"""
         self.out = output or sys.stdout
+        if type(self.out) == 'str':
+            self.out = open(self.out, 'w')
 
     def write(self, string):
         """write a string to the output"""
