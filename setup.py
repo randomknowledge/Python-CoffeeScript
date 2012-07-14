@@ -1,7 +1,6 @@
 #!python3
 #encoding: ascii
 from setuptools import setup
-import sys
 import io
 
 with io.open('README.rst', encoding='ascii') as fp:
@@ -12,13 +11,17 @@ setup(
     version="1.0.3",
     author='OMOTO Kenji',
     description='A bridge to the JS CoffeeScript compiler',
-    
-    packages=['coffeescript'],
+
+    packages=['coffeescript', 'coffeescript.scripts'],
     package_dir={'coffeescript': 'coffeescript'},
     package_data={
         'coffeescript': ['coffee-script.js'],
     },
-    
+    entry_points='''\
+    [console_scripts]
+    coffee = coffeescript.scripts.coffee:main
+    ''',
+
     long_description=long_description,
     url='https://github.com/doloopwhile/Python-CoffeeScript',
     author_email='doloopwhile@gmail.com',
